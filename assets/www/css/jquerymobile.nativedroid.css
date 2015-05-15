@@ -1672,17 +1672,13 @@ progress  {
 	transition: none !important;
 }
 
-.headerButton {
-    float: left;
-    margin-right: 5px!important;
-}
 
 
 
-#popupMenu-popup{
+/*#popupMenu-popup{
 top: 53px !important;
  
-}
+}*/
 /*
 left: 253px;   
 */
