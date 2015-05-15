@@ -1,118 +1,124 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Hallayo</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
-		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
+<head>
+    <title>Hallayo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-		<!-- jQueryMobileCSS - original without styling -->
-		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
 
-		<!-- nativeDroid core CSS -->
-        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+    <!-- jQueryMobileCSS - original without styling -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
 
-		<!-- nativeDroid: Light/Dark -->
-        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+    <!-- nativeDroid core CSS -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.css"/>
 
-		<!-- nativeDroid: Color Schemes -->
-        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+    <!-- nativeDroid: Light/Dark -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css" id='jQMnDTheme'/>
 
-		<!-- jQuery / jQueryMobile Scripts -->
-		<script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        
+    <!-- nativeDroid: Color Schemes -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor'/>
 
-        <!-- Reference to Cordova -->
-        <script type="text/javascript" src="cordova.js"></script>
+    <!-- jQuery / jQueryMobile Scripts -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
 
 
-    </head>
-    <body>
-        
-    <div id="index" data-role="page" data-theme='b' data-add-back-btn="true">
+    <!-- Reference to Cordova -->
+    <script type="text/javascript" src="cordova.js"></script>
 
 
-        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b' class="ui-bar">
- <a><i class='lIcon fa fa-heartbeat'></i></a>
-        <h1>Hallayo</h1>  
-       
-     <a href="#popupMenu" data-role="button" class="ui-btn-right"  data-rel="popup" data-transition="slide" id="menu"><i class='fa fa-ellipsis-v'></i></a> 
-               
-            
-            <div data-role="popup" id="popupMenu"  style="margin-top: 16px; border: none;">
+</head>
+<body>
 
-					<ul id="categoryLinks" data-role="listview" style="min-width:210px;">
-						<li>
-							<a href="preferences.html">Preferences</a>
-						</li>
-						<li>
-							<a href="about.html">About</a>
-						</li>
-						<li>
-							<a href="javascript:navigator.app.exitApp();">Exit</a>
-						</li>
+<div id="index" data-role="page" data-theme='b' data-add-back-btn="true">
 
-					</ul>
-				</div>
-           
-  
 
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b' class="ui-bar">
+        <a><i class='lIcon fa fa-heartbeat'></i></a>
+
+        <h1>Hallayo</h1>
+
+        <a href="#popupMenu" data-role="button" class="ui-btn-right" data-rel="popup" data-transition="slide" id="menu"><i
+                class='fa fa-ellipsis-v'></i></a>
+
+
+        <div data-role="popup" id="popupMenu" style="margin-top: 16px; border: none;">
+
+            <ul id="links" data-role="listview">
+                <li>
+                    <a href="preferences.html">Preferences</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="javascript:navigator.app.exitApp();">Exit</a>
+                </li>
+
+            </ul>
         </div>
-        
-        <div data-role="content">   
-            
-        	<div style="text-align:center; position: absolute;top:50%;width:100%;">
-			<button data-inline="true" onclick="share()"><h1><i class='lIcon fa fa-heartbeat'></i>Hallayo</h1></button>
-            </div>
-            
+
+
+    </div>
+
+    <div data-role="content">
+
+        <div style="text-align:center; position: absolute;top:50%;width:100%;">
+            <button data-inline="true" onclick="share()"><h1><i class='lIcon fa fa-heartbeat'></i>Hallayo</h1></button>
         </div>
-        <script>
-         $(document).one("pageshow","#index",function(){
-var platform = localStorage.getItem("platformEQAlert");
-var text = localStorage.getItem("textEQAlert");
-             if (text==null || text==undefined || text==""){
-                 localStorage.setItem("textEQAlert", "Just felt another aftershock. #NepalQuake");
-             }
-             if (platform==null || platform==undefined || platform==""){
-                 localStorage.setItem("platformEQAlert", "Twitter");
-             }
-           
+
+    </div>
+    <script>
+        $(document).one("pageshow", "#index", function () {
+            $.mobile.loading('hide');
+            var platform = localStorage.getItem("platformEQAlert");
+            var text = localStorage.getItem("textEQAlert");
+            if (text == null || text == undefined || text == "") {
+                localStorage.setItem("textEQAlert", "Just felt another aftershock. #NepalQuake");
+            }
+            if (platform == null || platform == undefined || platform == "") {
+                localStorage.setItem("platformEQAlert", "Twitter");
+            }
+
+        });
+
+        function share() {
+            if (localStorage.getItem("platformEQAlert") == "Twitter") shareViaTwitter();
+            else shareViaFacebook();
+        }
+
+
+        function shareViaFacebook() {
+            $.mobile.loading("show", {
+                text: "Opening Facebook",
+                textVisible: true,
+                theme: "a",
             });
-            
-            function share(){
-               if (localStorage.getItem("platformEQAlert")=="Twitter") shareViaTwitter();
-                else shareViaFacebook();
-            }
-            
-            
-          function  shareViaFacebook(){
-               $.mobile.loading( "show", {
-                             text:"Opening Facebook",
-textVisible: true,
-theme: "a",
-});
-                console.log("Sharing via Facebook");
-              window.plugins.socialsharing.shareViaFacebook(localStorage.getItem("textEQAlert"), null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
-                
-            }
-            
-           function shareViaTwitter(){
-                            $.mobile.loading( "show", {
-                             text:"Opening Twitter",
-textVisible: true,
-theme: "a",
-});
-                console.log("Sharing via Twitter");
-               window.plugins.socialsharing.shareViaTwitter(localStorage.getItem("textEQAlert"));
-            }
-              $(document).on('tap', "#menu", function (e) {
-                  console.log("Clicked");
-                  $("#popupMenu").popup("close");
-              });
-            
-                         </script>
-        </div>
-    </body>
+            console.log("Sharing via Facebook");
+            window.plugins.socialsharing.shareViaFacebook(localStorage.getItem("textEQAlert"), null /* img */, null /* url */, function () {
+                console.log('share ok')
+            }, function (errormsg) {
+                alert(errormsg)
+            });
+
+        }
+
+        function shareViaTwitter() {
+            $.mobile.loading("show", {
+                text: "Opening Twitter",
+                textVisible: true,
+                theme: "a",
+            });
+            console.log("Sharing via Twitter");
+            window.plugins.socialsharing.shareViaTwitter(localStorage.getItem("textEQAlert"));
+        }
+        $(document).on('tap', "#menu", function (e) {
+            console.log("Clicked");
+            $("#popupMenu").popup("close");
+        });
+
+    </script>
+</div>
+</body>
 </html>

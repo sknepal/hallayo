@@ -1,108 +1,114 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-         <title>Hallayo - Preferences</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
-		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
-        <link rel="stylesheet" href="css/font-awesome.min.css" />
+<head>
+    <title>Hallayo - Preferences</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-		<!-- jQueryMobileCSS - original without styling -->
-		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
 
-		<!-- nativeDroid core CSS -->
-        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+    <!-- jQueryMobileCSS - original without styling -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
 
-		<!-- nativeDroid: Light/Dark -->
-        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+    <!-- nativeDroid core CSS -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.css"/>
 
-		<!-- nativeDroid: Color Schemes -->
-        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+    <!-- nativeDroid: Light/Dark -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css" id='jQMnDTheme'/>
 
-		<!-- jQuery / jQueryMobile Scripts -->
-		<script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        
+    <!-- nativeDroid: Color Schemes -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor'/>
 
-        <!-- Reference to Cordova -->
-        <script type="text/javascript" src="cordova.js"></script>
-
-    </head>
-    <body>
-        
-    <div id="preferences" data-role="page" data-theme='b'>
+    <!-- jQuery / jQueryMobile Scripts -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
 
 
-        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="" onclick="window.history.go(-1);"  data-role="button" ><i class='fa fa-chevron-left'></i></a>
-            <h1>Preferences</h1>
-        </div>
-        
-        <div data-role="content">   
+    <!-- Reference to Cordova -->
+    <script type="text/javascript" src="cordova.js"></script>
 
-			    
-            <form>
-                <ul data-role="listview" data-inset="true">
-                    <li data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                            <legend>Platform</legend>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-1b" value="Twitter"  checked="checked">
-                            <label for="radio-choice-1b">Twitter</label>
-                            <input type="radio" name="radio-choice-1" id="radio-choice-2b" value="Facebook">
-                            <label for="radio-choice-2b">Facebook</label>
-                        </fieldset>
-                    </li>
-                    
-                    <li data-role="fieldcontain">
-                        <label for="textarea2b">Text </label>
-                    <textarea cols="40" rows="8" name="textarea2" id="textarea2b" placeholder="This is a textarea"></textarea>
-                    </li>
-                    
-                    <li>
-							<button type="supreferences.htmlbmit" data-inline='true'><i class='lIcon fa fa-check'></i>Submit</button>
-							<button type="reset" data-inline='true'><i class='lIcon fa fa-times'></i>Reset</button>
-                    </li>
-                </ul>
-            </form>
+</head>
+<body>
 
-	        
-        </div>
-	       <script>
-  $(document).one("pageshow","#preferences",function(){
-var platform = localStorage.getItem("platformEQAlert");
-var text = localStorage.getItem("textEQAlert");
-      if (platform=="Facebook"){
-          $('#radio-choice-1b').prop('checked', false).checkboxradio("refresh");;
-              $('#radio-choice-2b').prop('checked', true).checkboxradio("refresh");;
-      }else{
-          $('#radio-choice-1b').prop('checked', true).checkboxradio("refresh");;
-              $('#radio-choice-2b').prop('checked', false).checkboxradio("refresh");;
-      }
-      
-      $('#textarea2b').html(text);
-            });
-               
-               $('form').on('submit', function(e) {
-					e.preventDefault();
-                 localStorage.setItem("textEQAlert", $('#textarea2b').val());
-                   
-$.each($("input[name='radio-choice-1']:checked"), function() {    
-    console.log($(this).val());
-      localStorage.setItem("platformEQAlert", $(this).val());
-				});
-                         $.mobile.loading( "show", {
-                             text:"",
-textVisible: false,
-theme: "z",
-});
-                    setTimeout(function () {   window.history.go(-1); }, 500); 
+<div id="preferences" data-role="page" data-theme='b'>
 
-                  
-               });
 
-                
-                  </script>
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+        <a href="" onclick="window.history.go(-1);" data-role="button"><i class='fa fa-chevron-left'></i></a>
+
+        <h1>Preferences</h1>
     </div>
-    
-    </body>
+
+    <div data-role="content">
+
+
+        <form>
+            <ul data-role="listview" data-inset="true">
+                <li data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Platform</legend>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-1b" value="Twitter"
+                               checked="checked">
+                        <label for="radio-choice-1b">Twitter</label>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-2b" value="Facebook">
+                        <label for="radio-choice-2b">Facebook</label>
+                    </fieldset>
+                </li>
+
+                <li data-role="fieldcontain">
+                    <label for="textarea2b">Text </label>
+                    <textarea cols="40" rows="8" name="textarea2" id="textarea2b"
+                              placeholder="This is a textarea"></textarea>
+                </li>
+
+                <li>
+                    <button type="supreferences.htmlbmit" data-inline='true'><i class='lIcon fa fa-check'></i>Submit
+                    </button>
+                    <button type="reset" data-inline='true'><i class='lIcon fa fa-times'></i>Reset</button>
+                </li>
+            </ul>
+        </form>
+
+
+    </div>
+    <script>
+        $(document).one("pageshow", "#preferences", function () {
+            var platform = localStorage.getItem("platformEQAlert");
+            var text = localStorage.getItem("textEQAlert");
+            if (platform == "Facebook") {
+                $('#radio-choice-1b').prop('checked', false).checkboxradio("refresh");
+                $('#radio-choice-2b').prop('checked', true).checkboxradio("refresh");
+            } else {
+                $('#radio-choice-1b').prop('checked', true).checkboxradio("refresh");
+                $('#radio-choice-2b').prop('checked', false).checkboxradio("refresh");
+            }
+
+            $('#textarea2b').html(text);
+        });
+
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            localStorage.setItem("textEQAlert", $('#textarea2b').val());
+
+            $.each($("input[name='radio-choice-1']:checked"), function () {
+                console.log($(this).val());
+                localStorage.setItem("platformEQAlert", $(this).val());
+            });
+            $.mobile.loading("show", {
+                text: "",
+                textVisible: false,
+                theme: "z",
+            });
+            setTimeout(function () {
+                window.history.go(-1);
+            }, 500);
+
+
+        });
+
+
+    </script>
+</div>
+
+</body>
 </html>
