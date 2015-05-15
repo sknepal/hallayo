@@ -5,10 +5,10 @@
 # Built Using
 JQueryMobile & Phonegap.
 
-###Theme
+### Theme
 [nativeDroid](http://nativedroid.godesign.ch)
 
-###Phonegap plugins
+### Phonegap plugins
 1. [SocialSharing-PhoneGap-Plugin](https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin): For Social Share.
 2. [cordova-plugin-inappbrowser](https://github.com/apache/cordova-plugin-inappbrowser): To open external links in system browser.
 
@@ -20,6 +20,7 @@ JQueryMobile & Phonegap.
 3. Open the file index.html on the browser.
 4. In order to build, use Phonegap build service or build locally. If you are going to build locally, make sure to install the plugins first.
 
+**[Download APK](http://tinyurl.com/hallayo)**
 
 ## License
 
