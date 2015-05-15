@@ -70,8 +70,10 @@
 
     </div>
     <script>
+         
+                          
         $(document).one("pageshow", "#index", function () {
-            $.mobile.loading('hide');
+          
             var platform = localStorage.getItem("platformEQAlert");
             var text = localStorage.getItem("textEQAlert");
             if (text == null || text == undefined || text == "") {
@@ -96,11 +98,16 @@
                 theme: "a",
             });
             console.log("Sharing via Facebook");
+            setTimeout(function () {
+              
             window.plugins.socialsharing.shareViaFacebook(localStorage.getItem("textEQAlert"), null /* img */, null /* url */, function () {
                 console.log('share ok')
             }, function (errormsg) {
                 alert(errormsg)
             });
+                   $.mobile.loading('hide');
+            }, 500);
+            
 
         }
 
@@ -111,7 +118,12 @@
                 theme: "a",
             });
             console.log("Sharing via Twitter");
-            window.plugins.socialsharing.shareViaTwitter(localStorage.getItem("textEQAlert"));
+             setTimeout(function () {
+               window.plugins.socialsharing.shareViaTwitter(localStorage.getItem("textEQAlert"));
+                   $.mobile.loading('hide');
+            }, 500);
+
+           
         }
         $(document).on('tap', "#menu", function (e) {
             console.log("Clicked");
