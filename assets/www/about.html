@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <title>Hallayo - About</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+		<!-- jQueryMobileCSS - original without styling -->
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+
+		<!-- nativeDroid core CSS -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+
+		<!-- nativeDroid: Light/Dark -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+
+		<!-- nativeDroid: Color Schemes -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+
+		<!-- jQuery / jQueryMobile Scripts -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        
+
+        <!-- Reference to Cordova -->
+        <script type="text/javascript" src="cordova.js"></script>
+
+    </head>
+    <body>
+        
+    <div id="about" data-role="page" data-theme='b'>
+
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="" onclick="window.history.go(-1);"  data-role="button" ><i class='fa fa-chevron-left'></i></a>
+            <h1>About</h1>
+        </div>
+        
+        <div data-role="content">   
+
+			      <div class='inset'>
+                      <br>
+      <p>A simple app that posts to Facebook or Twitter a text (that you specify) whenever you feel an Earthquake and/or it's aftershock.</p>
+          
+          <p>Made in response to <a href="javascript:window.open('https://twitter.com/RajeebTheGreat/status/599037268465090560', '_system', '');">this tweet</a>. I don't expect anyone to use it; I just took the tweet too literally.</p> 
+                      <br>
+            <div class='message info'>
+					<i class='fa fa-info'></i>
+					 <p> Version: 0.1. </p>
+                      <p>Developed by <a href="javascript:window.open('https://twitter.com/SkNepal', '_system', '');">@SkNepal</a> during <a href="javascript:window.open('en.wikipedia.org/wiki/2015_Nepal_earthquake', '_system', '');">Nepal Earthquake 2015</a>.</p>
+            <p> Published on : May 15, 2015.</p>
+            <p> Github : <a href="javascript:window.open('https://www.github.com/SkNepal/Hallayo', '_system', '');">Hallayo</a>.</p>
+                      <p>License: <a href="javascript:window.open('http://www.dbad-license.org/', '_system', '');">Don't be a dick</a>.</p>
+            
+				</div>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+</html>
