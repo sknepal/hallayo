@@ -1682,6 +1682,7 @@ progress  {
 #popupMenu-popup{
  max-width: 450px;
 top: 53px !important;
+    float: right;
 }
 /*
 left: 253px;   
