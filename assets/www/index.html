@@ -99,12 +99,16 @@
             });
             console.log("Sharing via Facebook");
             setTimeout(function () {
-              
-            window.plugins.socialsharing.shareViaFacebook(localStorage.getItem("textEQAlert"), null /* img */, null /* url */, function () {
-                console.log('share ok')
-            }, function (errormsg) {
-                alert(errormsg)
-            });
+        
+              //  console.log(localStorage.getItem("textEQAlert"));
+ window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(
+    localStorage.getItem("textEQAlert"),
+    null,
+    null,
+    'Message copied to clipboard, press on the area to paste it in the feed.',
+    function(){}, 
+    function(){}
+);
                    $.mobile.loading('hide');
             }, 500);
             
