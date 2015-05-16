@@ -16,7 +16,7 @@ JQueryMobile & Phonegap.
 ## Installation
 
 1. Download.
-2. Start browser by disabling cross-origin security. For example, for chrome, issue terminal command: ```chromium-browser --disable-web-security```.
+2. Start browser by disabling cross-origin security. For example, for chromium, issue terminal command: ```chromium-browser --disable-web-security```.
 3. Open the file index.html on the browser.
 4. In order to build, use Phonegap build service or build locally. If you are going to build locally, make sure to install the plugins first.
 
